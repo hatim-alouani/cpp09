@@ -1,6 +1,7 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {}
+<<<<<<< HEAD
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) {
     *this = other;
@@ -125,3 +126,26 @@ void BitcoinExchange::processInput(const std::string &file) {
     }
 }
 
+=======
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) : data(other.data) {}
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
+    if (this != &other) {
+        data = other.data;
+    }
+    return *this;
+}
+BitcoinExchange::~BitcoinExchange() {}
+
+void BitcoinExchange::loadData(const std::string &filename) {
+    std::ifstream file(filename.c_str());
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << filename << std::endl
+        return;
+    }
+    std::string line;
+    while (std::getline(file, line)) {
+    
+    }
+    file.close();
+}
+>>>>>>> 75b5230 (push)
